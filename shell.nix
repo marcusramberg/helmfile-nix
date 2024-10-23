@@ -16,11 +16,12 @@ let
   goEnv = mkGoEnv { pwd = ./.; };
 in
 pkgs.mkShell {
-  packages = [
+  packages = with pkgs; [
     goEnv
     gomod2nix
-    pkgs.docker
-    pkgs.helmfile
-    pkgs.kubernetes-helm
+    go-junit-report
+    docker
+    helmfile
+    kubernetes-helm
   ];
 }
